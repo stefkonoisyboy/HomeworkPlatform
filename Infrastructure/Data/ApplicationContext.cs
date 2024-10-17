@@ -22,6 +22,10 @@ namespace Infrastructure.Data
 
         public DbSet<Grade> Grades { get; set; }
 
+        public DbSet<Report> Reports { get; set; }
+
+        public DbSet<UserReport> UserReports { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

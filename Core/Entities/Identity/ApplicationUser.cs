@@ -9,7 +9,9 @@ namespace Core.Entities.Identity
         {
             this.CreatedClasses = new HashSet<Class>();
             this.EnrolledClasses = new HashSet<UserClass>();
-            this.HomeworkSubmissions = new HashSet<HomeworkSubmission>(); 
+            this.HomeworkSubmissions = new HashSet<HomeworkSubmission>();
+            this.CreatedReports = new HashSet<Report>();
+            this.EnrolledReports = new HashSet<UserReport>();
         }
 
         public string FirstName { get; set; }
@@ -26,5 +28,9 @@ namespace Core.Entities.Identity
         public ICollection<UserClass> EnrolledClasses { get; set; }
 
         public ICollection<HomeworkSubmission> HomeworkSubmissions { get; set; }
+
+        public ICollection<Report> CreatedReports { get; set; }
+
+        public ICollection<UserReport> EnrolledReports { get; set; }
     }
 }

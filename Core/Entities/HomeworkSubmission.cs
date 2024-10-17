@@ -19,7 +19,6 @@ namespace Core.Entities
 
         public Homework Homework { get; set; }
 
-        [Required]
         public string GradeId { get; set; }
 
         public Grade Grade { get; set; }

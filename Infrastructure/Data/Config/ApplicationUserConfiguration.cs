@@ -19,6 +19,18 @@ namespace Infrastructure.Data.Config
                 .WithOne(uc => uc.Student)
                 .HasForeignKey(uc => uc.StudentId)
                 .OnDelete(DeleteBehavior.Cascade);
+
+            builder
+               .HasMany(u => u.CreatedReports)
+               .WithOne(r => r.Teacher)
+               .HasForeignKey(r => r.TeacherId)
+               .OnDelete(DeleteBehavior.Cascade);
+
+            builder
+                .HasMany(u => u.EnrolledReports)
+                .WithOne(ur => ur.Student)
+                .HasForeignKey(ur => ur.StudentId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
