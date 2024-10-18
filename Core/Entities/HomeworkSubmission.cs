@@ -6,6 +6,11 @@ namespace Core.Entities
 {
     public class HomeworkSubmission : BaseEntity
     {
+        public HomeworkSubmission()
+        {
+            this.Attachments = new HashSet<Attachment>();
+        }
+
         [Required]
         public HomeworkSubmissionStatus Status { get; set; }
 
@@ -22,5 +27,7 @@ namespace Core.Entities
         public string GradeId { get; set; }
 
         public Grade Grade { get; set; }
+
+        public ICollection<Attachment> Attachments { get; set; }
     }
 }

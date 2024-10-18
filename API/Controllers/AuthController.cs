@@ -32,11 +32,16 @@ namespace API.Controllers
             var user = await this.userManager
                 .FindByEmailFromClaimsPrincipalAsync(this.User);
 
+            IList<string> roles = await this.userManager
+               .GetRolesAsync(user);
+
+            string role = roles[0];
+
             return this.Ok(new UserDto
             {
                 Id = user.Id,
                 Email = user.Email,
-                Token = this.tokenService.CreateToken(user),
+                Token = this.tokenService.CreateToken(user, role),
                 FirstName = user.FirstName,
                 LastName = user.LastName,
             });
@@ -69,11 +74,16 @@ namespace API.Controllers
                 return this.Unauthorized(new ApiResponse(StatusCodes.Status401Unauthorized));
             }
 
+            IList<string> roles = await this.userManager
+                .GetRolesAsync(user);
+
+            string role = roles[0];
+
             return this.Ok(new UserDto
             {
                 Id = user.Id,
                 Email = user.Email,
-                Token = this.tokenService.CreateToken(user),
+                Token = this.tokenService.CreateToken(user, role),
                 FirstName = user.FirstName,
                 LastName = user.LastName,
             });
@@ -107,10 +117,15 @@ namespace API.Controllers
                 return this.BadRequest(new ApiResponse(StatusCodes.Status400BadRequest));
             }
 
+            IList<string> roles = await this.userManager
+               .GetRolesAsync(user);
+
+            string role = roles[0];
+
             return this.Ok(new UserDto
             {
                 Id = user.Id,
-                Token = this.tokenService.CreateToken(user),
+                Token = this.tokenService.CreateToken(user, role),
                 Email = user.Email,
                 FirstName = user.FirstName,
                 LastName = user.LastName,

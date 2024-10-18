@@ -7,6 +7,7 @@ namespace Core.Entities
         public Homework()
         {
             this.HomeworkSubmissions = new HashSet<HomeworkSubmission>();
+            this.Attachments = new HashSet<Attachment>();
         }
 
         [Required]
@@ -17,7 +18,7 @@ namespace Core.Entities
 
         public int? Points { get; set; }
 
-        public DateTime EndDate { get; set; }
+        public DateTime? EndDate { get; set; }
 
         [Required]
         public string ClassId { get; set; }
@@ -25,5 +26,7 @@ namespace Core.Entities
         public Class Class { get; set; }
 
         public ICollection<HomeworkSubmission> HomeworkSubmissions { get; set; }
+
+        public ICollection<Attachment> Attachments { get; set; }
     }
 }

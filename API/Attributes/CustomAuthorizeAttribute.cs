@@ -2,12 +2,20 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc;
+using Infrastructure;
 
 namespace API.Attributes
 {
     [AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
     public class CustomAuthorizeAttribute : Attribute, IAuthorizationFilter
     {
+        public CustomAuthorizeAttribute(string role = Constants.STUDENT_ROLE)
+        {
+            this.Role = role;
+        }
+
+        public string Role { get; }
+
         public void OnAuthorization(AuthorizationFilterContext context)
         {
             // skip authorization if action is decorated with [AllowAnonymous] attribute
@@ -19,6 +27,12 @@ namespace API.Attributes
             if (!context.HttpContext.User.Identity.IsAuthenticated)
             {
                 context.Result = new JsonResult(new ApiResponse(StatusCodes.Status401Unauthorized)) { StatusCode = StatusCodes.Status401Unauthorized };
+                return;
+            }
+
+            if (!context.HttpContext.User.IsInRole(this.Role))
+            {
+                context.Result = new JsonResult(new ApiResponse(StatusCodes.Status403Forbidden)) { StatusCode = StatusCodes.Status403Forbidden };
                 return;
             }
         }

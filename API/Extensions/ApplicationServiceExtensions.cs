@@ -56,6 +56,9 @@ namespace API.Extensions
             services.AddAuthorization();
 
             services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<ICloudinaryService, CloudinaryService>();
+            services.AddScoped<IClassService, ClassService>();
+            services.AddScoped<IHomeworkService, HomeworkService>();
 
             services.Configure<Jwt>(configuration.GetSection("JWT"));
 
