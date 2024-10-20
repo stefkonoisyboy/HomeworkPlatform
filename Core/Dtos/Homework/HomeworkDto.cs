@@ -11,5 +11,7 @@
         public int? Points { get; set; }
 
         public DateTime? EndDate { get; set; }
+
+        public string ClassId { get; set; }
     }
 }

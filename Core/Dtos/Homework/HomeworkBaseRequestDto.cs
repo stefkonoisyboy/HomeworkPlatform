@@ -13,11 +13,9 @@ namespace Core.Dtos.Homework
 
         public int? Points { get; set; }
 
-        public DateTime? EndDate { get; set; }
+        public string EndDate { get; set; }
 
         [Required]
         public string ClassId { get; set; }
-
-        public ICollection<IFormFile> Attachments { get; set; }
     }
 }

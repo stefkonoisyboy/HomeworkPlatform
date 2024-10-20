@@ -4,6 +4,7 @@ using API.Extensions;
 using Core.Dtos.Auth;
 using Core.Entities.Identity;
 using Core.Interfaces;
+using Infrastructure;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 
@@ -26,7 +27,7 @@ namespace API.Controllers
         }
 
         [HttpGet]
-        [CustomAuthorize]
+        [CustomAuthorize(Constants.ADMINISTRATOR_ROLE, Constants.TEACHER_ROLE, Constants.STUDENT_ROLE)]
         public async Task<ActionResult<UserDto>> GetCurrentUser()
         {
             var user = await this.userManager

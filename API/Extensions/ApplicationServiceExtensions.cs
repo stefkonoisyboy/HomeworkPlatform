@@ -52,6 +52,7 @@ namespace API.Extensions
                 opt.UseNpgsql(configuration.GetConnectionString("DefaultConnection"));
             });
 
+            AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
             services.AddAuthorization();
 
@@ -59,6 +60,7 @@ namespace API.Extensions
             services.AddScoped<ICloudinaryService, CloudinaryService>();
             services.AddScoped<IClassService, ClassService>();
             services.AddScoped<IHomeworkService, HomeworkService>();
+            services.AddScoped<IUserService, UserService>();
 
             services.Configure<Jwt>(configuration.GetSection("JWT"));
 

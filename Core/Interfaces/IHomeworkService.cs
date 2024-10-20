@@ -6,7 +6,7 @@ namespace Core.Interfaces
     {
         Task<HomeworkDto> CreateAsync(CreateHomeworkDto createHomeworkDto, string creatorId);
 
-        Task<HomeworkDto> UpdateAsync(EditHomeworkDto editHomeworkDto, string creatorId);
+        Task<HomeworkDto> UpdateAsync(EditHomeworkDto editHomeworkDto);
 
         Task DeleteAsync(string homeworkId);
 
