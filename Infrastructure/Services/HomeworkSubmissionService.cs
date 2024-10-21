@@ -27,6 +27,7 @@ namespace Infrastructure.Services
             {
                 StudentId = studentId,
                 HomeworkId = createHomeworkSubmissionDto.HomeworkId,
+                Status = Core.Entities.Enums.HomeworkSubmissionStatus.Submitted,
             };
 
             EntityEntry<HomeworkSubmission> createdHomeworkSubmissionEntity = await this.dbContext.HomeworkSubmissions

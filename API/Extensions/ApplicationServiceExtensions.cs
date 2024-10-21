@@ -63,6 +63,7 @@ namespace API.Extensions
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IHomeworkSubmissionService, HomeworkSubmissionService>();
             services.AddScoped<IAttachmentService, AttachmentService>();
+            services.AddScoped<IGradeService, GradeService>();
 
             services.Configure<Jwt>(configuration.GetSection("JWT"));
 

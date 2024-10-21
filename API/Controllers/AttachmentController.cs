@@ -40,7 +40,7 @@ namespace API.Controllers
         }
 
         [CustomAuthorize(Constants.ADMINISTRATOR_ROLE, Constants.TEACHER_ROLE, Constants.STUDENT_ROLE)]
-        [HttpGet("by-homework/{homeworkId}")]
+        [HttpGet("by-homeworksubmission/{homeworkSubmissionId}")]
         public async Task<IActionResult> GetAllByHomeworkSubmissionId([FromRoute] string homeworkSubmissionId)
         {
             if (!await this.homeworkSubmissionService
