@@ -118,10 +118,9 @@ namespace API.Controllers
                 return this.BadRequest(new ApiResponse(StatusCodes.Status400BadRequest));
             }
 
-            IList<string> roles = await this.userManager
-               .GetRolesAsync(user);
+            string role = Constants.STUDENT_ROLE;
 
-            string role = roles[0];
+            await this.userManager.AddToRoleAsync(user, role);
 
             return this.Ok(new UserDto
             {

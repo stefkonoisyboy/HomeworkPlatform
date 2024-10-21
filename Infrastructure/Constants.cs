@@ -13,5 +13,9 @@
         public const string USER_NOT_FOUND = "User not found";
 
         public const string HOMEWORK_NOT_FOUND = "Homework not found";
+
+        public const string HOMEWORK_SUBMISSION_NOT_FOUND = "Homework Submission not found";
+
+        public const string CURRENT_USER_NOT_MATCHING = "You cannot fetch other user's info";
     }
 }
