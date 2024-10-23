@@ -49,11 +49,6 @@ namespace API.Controllers
 
             if (createGradeDto.Points.HasValue)
             {
-                if (double.IsNaN(createGradeDto.Points.Value))
-                {
-                    return this.BadRequest(new ApiResponse(StatusCodes.Status400BadRequest, Constants.POINTS_SHOULD_BE_NUMERIC));
-                }
-
                 if (await this.gradeService
                     .CheckExistingGradeAsync(createGradeDto.HomeworkSubmissionId))
                 {
@@ -97,11 +92,6 @@ namespace API.Controllers
 
             if (editGradeDto.Points.HasValue)
             {
-                if (double.IsNaN(editGradeDto.Points.Value))
-                {
-                    return this.BadRequest(new ApiResponse(StatusCodes.Status400BadRequest, Constants.POINTS_SHOULD_BE_NUMERIC));
-                }
-
                 if (!await this.gradeService
                     .CheckIfHomeworkHasPointsAsync(editGradeDto.HomeworkSubmissionId))
                 {

@@ -27,5 +27,15 @@
         public const string GRADE_POINTS_EXCEEDED = "You cannot grade a homework submission with more points that the corresponding homework is assigned with";
 
         public const string POINTS_SHOULD_BE_NUMERIC = "Points should be numeric";
+
+        public const string STUDENT_ALREADY_ASSIGNED = "This student has been already assigned for this class";
+
+        public const string TEACHER_ALREADY_ASSIGNED = "This teacher has been already assigned for this class";
+
+        public const string NON_EXISTENT_STUDENT_IN_CLASS = "This student does not exist in this class";
+
+        public const string NON_EXISTENT_TEACHER_IN_CLASS = "This teacher does not exist in this class";
+
+        public const string CANNOT_REMOVE_CREATOR_TEACHER = "You are not allowed to remove the creator of the class";
     }
 }

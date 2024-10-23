@@ -11,6 +11,7 @@ namespace Core.Dtos.Homework
 
         public string Instructions { get; set; }
 
+        [Range(1, 100)]
         public int? Points { get; set; }
 
         public string EndDate { get; set; }
