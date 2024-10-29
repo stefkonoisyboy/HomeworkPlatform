@@ -56,6 +56,8 @@ namespace Infrastructure.Services
 
                     await this.dbContext.Attachments.AddAsync(attachment);
                 }
+
+                await this.dbContext.SaveChangesAsync();
             }
 
             return homeworkSubmissionBasicDto;
@@ -85,6 +87,7 @@ namespace Infrastructure.Services
                     HomeworkTitle = hs.Homework.Title,
                     Status = hs.Status.ToString(),
                     StudentFullName = hs.Student.FirstName + " " + hs.Student.LastName,
+                    HomeworkId = hs.HomeworkId,
                 })
                 .ToListAsync();
 
@@ -109,6 +112,7 @@ namespace Infrastructure.Services
                     HomeworkTitle = hs.Homework.Title,
                     Status = hs.Status.ToString(),
                     StudentFullName = hs.Student.FirstName + " " + hs.Student.LastName,
+                    HomeworkId = hs.HomeworkId,
                 })
                 .ToListAsync();
 
@@ -133,6 +137,7 @@ namespace Infrastructure.Services
                     HomeworkTitle = hs.Homework.Title,
                     Status = hs.Status.ToString(),
                     StudentFullName = hs.Student.FirstName + " " + hs.Student.LastName,
+                    HomeworkId = hs.HomeworkId,
                 })
                 .FirstOrDefaultAsync();
 

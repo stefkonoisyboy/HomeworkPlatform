@@ -10,6 +10,8 @@
 
         public int? GradePoints { get; set; }
 
+        public string HomeworkId { get; set; }
+
         public int? HomeworkPoints { get; set; }
 
         public string HomeworkTitle { get; set; }
